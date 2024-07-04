@@ -1,23 +1,37 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+ <input id='showAllProducts' type="checkbox" v-model="this.showAllProducts">
+ <label for="showAllProducts">Show All Products</label>
+ <ContainerComponent :showAllProducts="showAllProducts" @adeedProductToCart="handleAddingToCart"/>
+
+ 
 </template>
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
-import HelloWorld from './components/HelloWorld.vue';
 
+import ContainerComponent from './components/ContainerComponent.vue'
 @Options({
+  
   components: {
-    HelloWorld,
+    ContainerComponent
   },
+  // methods: {
+  //   handleAddingToCart(id){
+      
+  //   }
+  // },
+  data(){
+    return{
+      showAllProducts: false,
+    }
+  }
 })
 export default class App extends Vue {}
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Avenir, Helvetica, Arial, id,productCardComponentns-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
