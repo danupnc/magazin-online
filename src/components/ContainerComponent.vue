@@ -81,7 +81,7 @@ export default class ContainerComponent extends Vue {
 }
 </script>
 
-<style lang="css">
+<style scoped lang="css">
     .container {
         display: flex;
         justify-content: space-around;

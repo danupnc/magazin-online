@@ -1,9 +1,15 @@
 <template>
- <input id='showAllProducts' type="checkbox" v-model="this.showAllProducts">
+ <!-- <input id='showAllProducts' type="checkbox" v-model="this.showAllProducts">
  <label for="showAllProducts">Show All Products</label>
- <ContainerComponent :showAllProducts="showAllProducts" @adeedProductToCart="handleAddingToCart"/>
+ <ContainerComponent :showAllProducts="showAllProducts" @adeedProductToCart="handleAddingToCart"/> -->
 
- 
+ <nav>
+  <router-link to="/home" >HomePage</router-link>
+  <router-link to="/about" >ABoutPage</router-link>
+ </nav>
+
+   <router-view></router-view>
+
 </template>
 
 <script lang="ts">

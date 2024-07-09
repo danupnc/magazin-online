@@ -1,47 +1,52 @@
 <template>
-    <div class="ProductCard" @click="goToProductPage">
-        <h2>{{ name }}</h2>
-        <img class='product-image' :src="img">
-        <p>{{ description }}</p>
-        <h3>{{ price }} mdl</h3>
+<div class="ProductCard" >
+         <h2>Produs sablon</h2>
+        <img class='product-image'/>
+        <p></p>
+        <h3>ID-ul Produsului:{{idProdus}}</h3>
         <img @click="addProductToCart" class="addToCartButton" src="../assets/add-to-cart.png" alt="">
-    </div>
+</div>
 </template>
 
 
 
-<script lang="ts">
+<script lang="ts"> 
 import { Options, Vue } from 'vue-class-component';
 
 
 @Options({
-    props:{ 
-        id: Number,
-        name: String,
-        description: String,
-        price: Number,
-        img: String,
-    },
-    methods:{
-        addProductToCart(){
-            this.$emit('addedToCart',this.id)
-        },
-        goToProductPage(){
-            this.$router.push({
-                name: 'Product', 
-                params:{
-                    id: this.id
-                        }})
+
+  components: {
+
+  },
+  created() {
+    this.idProdus = this.route.params.id;
+  },
+  methods: {
+ 
+  },
+  props:{
+    showAllProducts:{
+        type: String,
+        default: false
+    } 
+  },
+    data() {
+        return{
+            idProdus: null,
+
         }
+
     }
 })
-export default class ProductCardComponent extends Vue {
+
+export default class productView extends Vue {
 
 }
 </script>
 
 <style scoped lang="css">
-    .ProductCard{
+      .ProductCard{
         position: relative;
         width: 300px;
         height: 450px;
@@ -49,7 +54,6 @@ export default class ProductCardComponent extends Vue {
         transition:all 0.4s ease-in-out;
         border-radius: 30px;
         margin-bottom: 40px;
-        cursor: pointer;
     }
     .product-image{
         width: 80%;

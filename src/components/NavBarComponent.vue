@@ -19,7 +19,7 @@ export default class ProductCardComponent extends Vue {
 }
 </script>
 
-<style lang="css">
+<style scoped lang="css">
     .ProductCard{
         width: 300px;
         height: 450px;
